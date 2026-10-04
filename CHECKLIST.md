@@ -42,7 +42,7 @@ Mục tiêu: hiểu bài toán, thiết lập môi trường, chạy pipeline b�
 Mục tiêu: mỗi ticket_id chỉ có một hàng, batch cũ không ghi đè trạng thái mới nhất.
 
 **Lệnh chạy:**
-- [ ] `make test` — kiểm tra test liên quan ticket
+- [x] `make test` — kiểm tra test liên quan ticket
 
 **Nơi cần sửa:**
 - **Tệp:** `pipeline/silver.py`
@@ -291,7 +291,7 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 - [ ] Đã commit
 
 ### Sửa đúng và toàn bộ
-- [ ] Sửa pipeline/silver.py (khoá ticket)
+- [x] Sửa pipeline/silver.py (khoá ticket)
 - [ ] Sửa pipeline/gold.py (lateness)
 - [ ] Sửa pipeline/staging.py (CDC delete)
 - [ ] **KHÔNG sửa:** scripts/verify.py, tests/, data/, logic checksum
