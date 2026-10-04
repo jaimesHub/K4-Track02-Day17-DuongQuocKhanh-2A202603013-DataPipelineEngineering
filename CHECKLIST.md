@@ -69,9 +69,9 @@ Mục tiêu: mỗi ticket_id chỉ có một hàng, batch cũ không ghi đè tr
 Mục tiêu: event đến muộn so event_time phải được xử lý (u05 trễ 3 ngày).
 
 **Lệnh chạy:**
-- [ ] `make lateness` — lấy giá trị P99 từ Bronze (CP1)
-- [ ] `make test` — kiểm tra feature
-- [ ] `make verify` — kiểm tra các check liên quan
+- [x] `make lateness` — lấy giá trị P99 từ Bronze (CP1)
+- [x] `make test` — kiểm tra feature
+- [x] `make verify` — kiểm tra các check liên quan
 
 **Nơi cần sửa:**
 - **Tệp:** `pipeline/gold.py`
@@ -292,7 +292,7 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 
 ### Sửa đúng và toàn bộ
 - [x] Sửa pipeline/silver.py (khoá ticket)
-- [ ] Sửa pipeline/gold.py (lateness)
+- [x] Sửa pipeline/config.py (lateness / LOOKBACK_DAYS)
 - [ ] Sửa pipeline/staging.py (CDC delete)
 - [ ] **KHÔNG sửa:** scripts/verify.py, tests/, data/, logic checksum
 

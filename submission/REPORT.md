@@ -17,19 +17,19 @@ checksum nào lệch) — không phải cách sửa.
 | | Lỗi Silver | Lỗi late data | Lỗi xoá (CDC) |
 |---|---|---|---|
 | **Triệu chứng** | verify fail: silver_tickets has exactly one row per ticket_id (24 rows cho 12 tickets). T-91 got [('low','open',None),('high','open',None),('high','closed','bug')] thay vì high/closed/bug. test_silver_tickets_one_row_per_ticket, test_silver_tickets_latest_state_wins fail. | gold_feature_daily không khớp full recompute (c50b8851affe != 8630e04a61d1). u05 ngày 08-12 got (2,0) expected (5,1). LOOKBACK_DAYS=0 < 3 (phải >= ceil(p99)=3). | T-97 không phải tombstone (is_deleted=False, còn user_id u06, subject, body). Còn 1 dòng trong training snapshot mới nhất. Còn 2 chunk trong RAG. |
-| **Nguyên nhân gốc** | Ticket được ghi bằng INSERT thuần, không có unique_key và không có LSN guard, nên mỗi batch (và mỗi lần chạy lại/redelivery) append thêm hàng trùng cho cùng ticket_id → 24 hàng cho 12 ticket, nhiều trạng thái mâu thuẫn cùng tồn tại nên trạng thái cuối không xác định. | | |
-| **Cách sửa** (file, vài dòng) | MERGE ON ticket_id trong pipeline/silver.py (upsert_silver_tickets, dòng 64-101), WHEN MATCHED AND s._lsn > t._lsn THEN UPDATE, WHEN NOT MATCHED THEN INSERT; LSN bằng nhau thì giữ hàng hiện tại (idempotent), batch cũ chạy lại không làm lùi trạng thái. Thêm mệnh đề: dedup trong cùng batch bằng QUALIFY row_number() OVER (PARTITION BY ticket_id ORDER BY _lsn DESC)=1 (dòng 80) là bắt buộc vì MERGE không tự dedup khoá trùng trong nguồn (dedup trong batch ≠ upsert giữa các batch). | | |
-| **Khái niệm trên slide** | Keyed merge/upsert; dedup trong batch vs upsert giữa batch; idempotent write; LSN (thứ tự thay đổi CDC); SCD1 cho silver_tickets (SCD2 nằm ở silver_ticket_history). | | |
+| **Nguyên nhân gốc** | Ticket được ghi bằng INSERT thuần, không có unique_key và không có LSN guard, nên mỗi batch (và mỗi lần chạy lại/redelivery) append thêm hàng trùng cho cùng ticket_id → 24 hàng cho 12 ticket, nhiều trạng thái mâu thuẫn cùng tồn tại nên trạng thái cuối không xác định. | LOOKBACK_DAYS = 0 nên mỗi ngày chỉ recompute ngày đó; event đến muộn 3 ngày (event_time 08-12 nhưng _ingested_at 08-15) không nằm trong cửa sổ [08-15, 08-15] khi chạy 08-15 → không được tính vào ngày 08-12. | |
+| **Cách sửa** (file, vài dòng) | MERGE ON ticket_id trong pipeline/silver.py (upsert_silver_tickets, dòng 64-101), WHEN MATCHED AND s._lsn > t._lsn THEN UPDATE, WHEN NOT MATCHED THEN INSERT; LSN bằng nhau thì giữ hàng hiện tại (idempotent), batch cũ chạy lại không làm lùi trạng thái. Thêm mệnh đề: dedup trong cùng batch bằng QUALIFY row_number() OVER (PARTITION BY ticket_id ORDER BY _lsn DESC)=1 (dòng 80) là bắt buộc vì MERGE không tự dedup khoá trùng trong nguồn (dedup trong batch ≠ upsert giữa các batch). | Set LOOKBACK_DAYS = 3 trong pipeline/config.py (dòng 28) để match ceil(p99) = 3, nhằm recompute các partition [D - 3, D] chứa event đến muộn, tính lại vào event_date của chúng idempotent (ghi đè, không append). | |
+| **Khái niệm trên slide** | Keyed merge/upsert; dedup trong batch vs upsert giữa batch; idempotent write; LSN (thứ tự thay đổi CDC); SCD1 cho silver_tickets (SCD2 nằm ở silver_ticket_history). | Event time vs ingest time; late-arriving data; LOOKBACK_DAYS = ceil(p99 lateness); recompute-partition / overwrite-partition cho idempotency. | |
 
 ## 2. Các con số
 
-- P99 lateness đo từ Bronze: `3` ngày → `LOOKBACK_DAYS = 3 (sẽ đặt ở CP3)`
+- P99 lateness đo từ Bronze: 3 ngày → LOOKBACK_DAYS = 3
 - `submission/checksums.txt`: PASS / FAIL — Gold checksum: `________________`
 - `make parity`: PARITY / MISMATCH
 
 ## 3. Lựa chọn công cụ / kỹ thuật (mỗi dòng một câu "vì sao")
 
-- MERGE theo khoá cho `silver_tickets`, overwrite-partition cho `gold_feature_daily`: vì MERGE theo khoá + LSN guard làm ghi idempotent và chặn batch cũ làm lùi trạng thái mới; (phần overwrite-partition sẽ bổ sung ở CP3).
+- MERGE theo khoá cho `silver_tickets`, overwrite-partition cho `gold_feature_daily`: vì MERGE theo khoá + LSN guard làm ghi idempotent và chặn batch cũ làm lùi trạng thái mới; recompute lại các partition trong cửa sổ lookback ghi đè idempotent nên event đến muộn được tính vào đúng event_time mà chạy lại không nhân đôi.
 - Tombstone thay vì xoá hẳn hàng trong Silver:
 - Snapshot training dựng lại từ Bronze "as of" ngày đó, không sửa snapshot cũ:
 - DuckDB (lite) / dbt (track dbt) cho bài toán cỡ này, chứ không phải Spark:
