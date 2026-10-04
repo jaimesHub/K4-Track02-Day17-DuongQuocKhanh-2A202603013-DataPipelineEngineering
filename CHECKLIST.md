@@ -99,9 +99,9 @@ Mục tiêu: event đến muộn so event_time phải được xử lý (u05 tr�
 Mục tiêu: xử lý delete khi `after = null`, truyền xoá đến Silver, training snapshot và RAG index.
 
 **Lệnh chạy:**
-- [ ] `make verify` — phải đạt 18/18 ALL PASS
-- [ ] `make test` — tất cả test phải pass
-- [ ] `make rerun3` — chạy lại 2026-08-12 ba lần, so checksum
+- [x] `make verify` — phải đạt 18/18 ALL PASS
+- [x] `make test` — tất cả test phải pass
+- [x] `make rerun3` — chạy lại 2026-08-12 ba lần, so checksum
 
 **Nơi cần sửa:**
 - **Tệp 1:** `pipeline/staging.py`
@@ -293,7 +293,7 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 ### Sửa đúng và toàn bộ
 - [x] Sửa pipeline/silver.py (khoá ticket)
 - [x] Sửa pipeline/config.py (lateness / LOOKBACK_DAYS)
-- [ ] Sửa pipeline/staging.py (CDC delete)
+- [x] Sửa pipeline/staging.py (CDC delete)
 - [ ] **KHÔNG sửa:** scripts/verify.py, tests/, data/, logic checksum
 
 ### Repo GitHub
