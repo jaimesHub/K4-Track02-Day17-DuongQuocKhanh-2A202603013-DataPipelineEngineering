@@ -37,6 +37,7 @@ def ticket_changes_sql(upto: str | None = None, batch: str | None = None) -> str
     return f"""
     SELECT * FROM (
         SELECT
+            -- a delete has after = null: the key comes from `before`; every other column stays null
             COALESCE(j->'value'->'after'->>'ticket_id', j->'value'->'before'->>'ticket_id') AS ticket_id,
             _op,
             (j->'value'->'source'->>'lsn')::BIGINT                  AS _lsn,
@@ -44,11 +45,11 @@ def ticket_changes_sql(upto: str | None = None, batch: str | None = None) -> str
             j->'value'->'after'->>'user_id'                         AS user_id,
             j->'value'->'after'->>'subject'                         AS subject,
             j->'value'->'after'->>'body'                            AS body,
-            COALESCE(j->'value'->'after'->>'priority', j->'value'->'before'->>'priority') AS priority,
-            COALESCE(j->'value'->'after'->>'status', j->'value'->'before'->>'status') AS status,
-            COALESCE(j->'value'->'after'->>'category', j->'value'->'before'->>'category') AS category,
-            make_timestamp(COALESCE((j->'value'->'after'->>'created_at')::BIGINT, (j->'value'->'before'->>'created_at')::BIGINT)) AS created_at,
-            make_timestamp(COALESCE((j->'value'->'after'->>'updated_at')::BIGINT, (j->'value'->'before'->>'updated_at')::BIGINT)) AS updated_at,
+            j->'value'->'after'->>'priority'                       AS priority,
+            j->'value'->'after'->>'status'                         AS status,
+            j->'value'->'after'->>'category'                       AS category,
+            make_timestamp((j->'value'->'after'->>'created_at')::BIGINT) AS created_at,
+            make_timestamp((j->'value'->'after'->>'updated_at')::BIGINT) AS updated_at,
             _batch_id,
             _ingested_at,
             _kafka_offset

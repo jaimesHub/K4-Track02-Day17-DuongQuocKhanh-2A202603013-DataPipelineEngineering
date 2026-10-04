@@ -144,9 +144,9 @@ Mục tiêu: xử lý delete khi `after = null`, truyền xoá đến Silver, tr
 Mục tiêu: build dbt model, so checksum với pipeline Python.
 
 **Lệnh chạy:**
-- [ ] `make setup-dbt` (cài requirements-dbt.txt)
-- [ ] `make dbt` — build dbt models
-- [ ] `make parity` — so sánh silver_tickets và gold_feature_daily
+- [x] `make setup-dbt` (cài requirements-dbt.txt)
+- [x] `make dbt` — build dbt models
+- [x] `make parity` — so sánh silver_tickets và gold_feature_daily
 
 **Nơi cần sửa:**
 - Không cần sửa ở CP5; hai cách cài đặt đã sẵn sàng
