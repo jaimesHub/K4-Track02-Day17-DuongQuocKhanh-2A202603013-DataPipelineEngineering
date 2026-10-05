@@ -2,11 +2,11 @@
 
 ## Quy tắc cần nhớ
 
-- [ ] Không sửa `scripts/verify.py`, `tests/`, `data/`, hoặc logic tính checksum
-- [ ] Verify sẽ fail trên bản seed gốc — đây là dự kiến của đề bài
-- [ ] Chỉ sửa mã nguồn trong `pipeline/`
-- [ ] Chạy tất cả các lệnh từ thư mục gốc repo
-- [ ] Bản seed có 3 lỗi cố tình; bạn phải tìm và sửa cả ba
+- [x] Không sửa `scripts/verify.py`, `tests/`, `data/`, hoặc logic tính checksum
+- [x] Verify sẽ fail trên bản seed gốc — đây là dự kiến của đề bài
+- [x] Chỉ sửa mã nguồn trong `pipeline/`
+- [x] Chạy tất cả các lệnh từ thư mục gốc repo
+- [x] Bản seed có 3 lỗi cố tình; bạn phải tìm và sửa cả ba
 
 ---
 
@@ -197,7 +197,7 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 - [x] submission/REPORT.md: đầy đủ
 
 **Tên repo và nộp bài:**
-- [ ] Tên repo: `K4-Track02-Day17-HoVaTen-MSSV-DataPipelineEngineering`
+- [x] Tên repo: `K4-Track02-Day17-HoVaTen-MSSV-DataPipelineEngineering`
   - Ví dụ: `K4-Track02-Day17-NguyenVanAn-20260001-DataPipelineEngineering`
   - Họ tên không dấu, không khoảng trắng
   - Phân cách bằng `-`
@@ -278,17 +278,17 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 - [x] `make parity` → **PARITY**
 
 ### submission/REPORT.md
-- [ ] Họ tên, MSSV, URL repo
-- [ ] Phân tích 3 lỗi (≤ 1 trang)
-- [ ] Output từ verify, pytest, rerun, lateness, dbt, parity
+- [x] Họ tên, MSSV, URL repo
+- [x] Phân tích 3 lỗi (≤ 1 trang)
+- [x] Output từ verify, pytest, rerun, lateness, dbt, parity
 - [ ] Trả lời 2 câu hỏi suy ngẫm (nếu có)
 - [ ] Nếu làm B1: output `BONUS PASS`
 - [ ] Nếu làm B2: reference hoặc tóm tắt
 
 ### submission/checksums.txt
-- [ ] File được sinh bởi `make rerun3`
-- [ ] Nội dung: C0 = C1 = C2 = C3 kết quả PASS
-- [ ] Đã commit
+- [x] File được sinh bởi `make rerun3`
+- [x] Nội dung: C0 = C1 = C2 = C3 kết quả PASS
+- [x] Đã commit
 
 ### Sửa đúng và toàn bộ
 - [x] Sửa pipeline/silver.py (khoá ticket)
@@ -297,10 +297,10 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 - [x] **KHÔNG sửa:** scripts/verify.py, tests/, data/, logic checksum
 
 ### Repo GitHub
-- [ ] Tên: `K4-Track02-Day17-HoVaTen-MSSV-DataPipelineEngineering`
+- [x] Tên: `K4-Track02-Day17-HoVaTen-MSSV-DataPipelineEngineering`
 - [ ] Ví dụ: `K4-Track02-Day17-NguyenVanAn-20260001-DataPipelineEngineering`
 - [ ] PUBLIC: mở được khi chưa đăng nhập
-- [ ] Commit tất cả thay đổi
+- [x] Commit tất cả thay đổi
 - [ ] Push lên origin main
 
 ### Nộp trên LMS
