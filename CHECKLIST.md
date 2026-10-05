@@ -203,19 +203,19 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
   - Phân cách bằng `-`
   - Dùng MSSV thực
 
-- [ ] Repo PUBLIC trên GitHub
-  - [ ] Mở được khi chưa đăng nhập
-  - [ ] Lưu URL: `https://github.com/username/repo-name`
+- [x] Repo PUBLIC trên GitHub
+  - [x] Mở được khi chưa đăng nhập
+  - [x] Lưu URL: `https://github.com/username/repo-name`
 
-- [ ] Commit tất cả thay đổi:
+- [x] Commit tất cả thay đổi:
   - `git add pipeline/` (các file đã sửa)
   - `git add submission/REPORT.md submission/checksums.txt`
   - `git commit -m "sửa 3 lỗi: Silver khoá, Gold lateness, CDC delete"`
   - `git push origin main`
 
-- [ ] Kiểm tra: repo mở được trong trình duyệt khi chưa đăng nhập
+- [x] Kiểm tra: repo mở được trong trình duyệt khi chưa đăng nhập
 
-- [ ] **Nộp URL repo vào LMS:**
+- [x] **Nộp URL repo vào LMS:**
   - Ô bài tập: K4 / Track 02 / Day 17
   - Format: `https://github.com/username/K4-Track02-Day17-NguyenVanAn-20260001-DataPipelineEngineering`
   - **Deadline: 23:59 ngày lab, múi giờ Asia/Ho_Chi_Minh (UTC+7)**
@@ -262,10 +262,10 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 ## Danh sách kiểm tra cuối cùng — Trước khi nộp bài
 
 ### Đã đọc tài liệu
-- [ ] README.md
-- [ ] CHECKPOINTS.md
-- [ ] RUBRIC.md
-- [ ] RULES.md
+- [x] README.md
+- [x] CHECKPOINTS.md
+- [x] RUBRIC.md
+- [x] RULES.md
 
 ### Đã chạy và kiểm tra (CP1-CP5)
 - [x] `make setup` thành công
@@ -281,7 +281,7 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 - [x] Họ tên, MSSV, URL repo
 - [x] Phân tích 3 lỗi (≤ 1 trang)
 - [x] Output từ verify, pytest, rerun, lateness, dbt, parity
-- [ ] Trả lời 2 câu hỏi suy ngẫm (nếu có)
+- [x] Trả lời 2 câu hỏi suy ngẫm (nếu có)
 - [ ] Nếu làm B1: output `BONUS PASS`
 - [ ] Nếu làm B2: reference hoặc tóm tắt
 
@@ -299,15 +299,15 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 ### Repo GitHub
 - [x] Tên: `K4-Track02-Day17-HoVaTen-MSSV-DataPipelineEngineering`
 - [ ] Ví dụ: `K4-Track02-Day17-NguyenVanAn-20260001-DataPipelineEngineering`
-- [ ] PUBLIC: mở được khi chưa đăng nhập
+- [x] PUBLIC: mở được khi chưa đăng nhập
 - [x] Commit tất cả thay đổi
-- [ ] Push lên origin main
+- [x] Push lên origin main
 
 ### Nộp trên LMS
-- [ ] Sao chép URL repo (không clone URL)
-- [ ] Nộp vào ô K4 / Track 02 / Day 17
-- [ ] Kiểm tra: URL mở được khi nhấn từ LMS
-- [ ] **Deadline: 23:59 ngày lab, UTC+7**
+- [x] Sao chép URL repo (không clone URL)
+- [x] Nộp vào ô K4 / Track 02 / Day 17
+- [x] Kiểm tra: URL mở được khi nhấn từ LMS
+- [x] **Deadline: 23:59 ngày lab, UTC+7**
 
 ---
 
