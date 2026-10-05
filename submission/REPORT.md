@@ -5,7 +5,7 @@ Phần phân tích tối đa một trang, không tính output ở phần 5.
 
 **Họ tên / MSSV:** Dương Quốc Khánh / 2A202603013
 **Repo:** https://github.com/jaimesHub/K4-Track02-Day17-DuongQuocKhanh-2A202603013-DataPipelineEngineering
-**Commit bài nộp:** TBD
+**Commit bài nộp:** d2e3558 (commit "CP6: hoàn thiện REPORT và checklist"; chứa toàn bộ sửa lỗi trong pipeline/ từ CP2–CP5)
 **AI đã dùng và phạm vi hỗ trợ:** Claude Code (Anthropic) — được sử dụng để hỗ trợ quy trình CP1-CP5: đọc yêu cầu, chỉ ra các vị trí cần sửa trong pipeline/ (silver.py MERGE+LSN guard, config.py LOOKBACK_DAYS=3, staging.py CDC delete key từ before), chạy các lệnh verify/test/rerun3/dbt/parity lần đầu, và soạn thảo REPORT. Tôi đã tự chạy verify/test/rerun3/dbt/parity một cách độc lập để xác nhận kết quả và đã kiểm tra toàn bộ thay đổi trong code. Ghi chú: một subagent trước đó đã sửa dbt_project/ (vi phạm luật), đã được revert; bản sửa cuối cùng chỉ ảnh hưởng pipeline/ thôi.
 **Nguồn tham khảo khác:** docs/ và slide của lab; không có nguồn ngoài
 
