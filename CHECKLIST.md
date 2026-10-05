@@ -167,17 +167,17 @@ Mục tiêu: build dbt model, so checksum với pipeline Python.
 Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 
 **Viết submission/REPORT.md:**
-- [ ] **Thông tin học viên:**
+- [x] **Thông tin học viên:**
   - Họ tên đầy đủ (không dấu)
   - MSSV
   - URL repo GitHub
 
-- [ ] **Phần phân tích (≤ 1 trang, không tính output):**
+- [x] **Phần phân tích (≤ 1 trang, không tính output):**
   - Lỗi 1 (Silver): triệu chứng, nguyên nhân, cách sửa, khái niệm từ slide
   - Lỗi 2 (Gold): triệu chứng, nguyên nhân, cách sửa, khái niệm
   - Lỗi 3 (Delete): triệu chứng, nguyên nhân, cách sửa, khái niệm
 
-- [ ] **Output thực tế (dán từ terminal):**
+- [x] **Output thực tế (dán từ terminal):**
   - `make verify`: 18/18 ALL PASS
   - `make test`: (số test pass)
   - `make lateness`: P50, P95, P99
@@ -185,16 +185,16 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
   - `make dbt`: PASS=19
   - `make parity`: PARITY
 
-- [ ] **Trả lời hai câu hỏi suy ngẫm** (nếu có trong RUBRIC.md)
+- [x] **Trả lời hai câu hỏi suy ngẫm** (nếu có trong RUBRIC.md)
 
 **Kiểm tra trước nộp:**
-- [ ] Verify: **18/18 ALL PASS**
-- [ ] Pytest: **0 fail** (tất cả pass)
-- [ ] Rerun: **PASS** (C0 = C1 = C2 = C3)
-- [ ] dbt: **PASS = 19**
-- [ ] parity: **PARITY**
-- [ ] submission/checksums.txt: sinh bởi `make rerun3`, commit
-- [ ] submission/REPORT.md: đầy đủ
+- [x] Verify: **18/18 ALL PASS**
+- [x] Pytest: **0 fail** (tất cả pass)
+- [x] Rerun: **PASS** (C0 = C1 = C2 = C3)
+- [x] dbt: **PASS = 19**
+- [x] parity: **PARITY**
+- [x] submission/checksums.txt: sinh bởi `make rerun3`, commit
+- [x] submission/REPORT.md: đầy đủ
 
 **Tên repo và nộp bài:**
 - [ ] Tên repo: `K4-Track02-Day17-HoVaTen-MSSV-DataPipelineEngineering`
@@ -221,9 +221,9 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
   - **Deadline: 23:59 ngày lab, múi giờ Asia/Ho_Chi_Minh (UTC+7)**
 
 **Kiểm tra an toàn:**
-- [ ] Repo không chứa `.env`, secret, API key
-- [ ] Repo không chứa dữ liệu khách hàng thật
-- [ ] Nếu sử dụng AI trong quá trình làm: tiết lộ trong REPORT.md
+- [x] Repo không chứa `.env`, secret, API key
+- [x] Repo không chứa dữ liệu khách hàng thật
+- [x] Nếu sử dụng AI trong quá trình làm: tiết lộ trong REPORT.md
 
 ---
 
@@ -268,14 +268,14 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 - [ ] RULES.md
 
 ### Đã chạy và kiểm tra (CP1-CP5)
-- [ ] `make setup` thành công
-- [ ] `make run` thành công
-- [ ] `make verify` → **18/18 ALL PASS**
-- [ ] `make test` → **0 fail** (tất cả pass)
-- [ ] `make lateness` → có P50, P95, P99
-- [ ] `make setup-dbt` thành công
-- [ ] `make dbt` → **PASS = 19**
-- [ ] `make parity` → **PARITY**
+- [x] `make setup` thành công
+- [x] `make run` thành công
+- [x] `make verify` → **18/18 ALL PASS**
+- [x] `make test` → **0 fail** (tất cả pass)
+- [x] `make lateness` → có P50, P95, P99
+- [x] `make setup-dbt` thành công
+- [x] `make dbt` → **PASS = 19**
+- [x] `make parity` → **PARITY**
 
 ### submission/REPORT.md
 - [ ] Họ tên, MSSV, URL repo
@@ -294,7 +294,7 @@ Mục tiêu: viết REPORT, kiểm tra repo, commit, push, nộp lên LMS.
 - [x] Sửa pipeline/silver.py (khoá ticket)
 - [x] Sửa pipeline/config.py (lateness / LOOKBACK_DAYS)
 - [x] Sửa pipeline/staging.py (CDC delete)
-- [ ] **KHÔNG sửa:** scripts/verify.py, tests/, data/, logic checksum
+- [x] **KHÔNG sửa:** scripts/verify.py, tests/, data/, logic checksum
 
 ### Repo GitHub
 - [ ] Tên: `K4-Track02-Day17-HoVaTen-MSSV-DataPipelineEngineering`
